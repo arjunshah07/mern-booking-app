@@ -36,7 +36,7 @@ test('should allow the user to register', async ({ page }) => {
   await page.locator("[name=lastName]").fill("test_lastName");
   await page.locator("[name=email]").fill(testEmail);
   await page.locator("[name=password]").fill("password123");
-  await page.locator("[name = confirmPassword]").fill("password123");
+  await page.locator("[name=confirmPassword]").fill("password123");
   await page.getByRole("button", {name: "Create Account"}).click();
   await expect(page.getByText("Registration Success")).toBeVisible();
 
