@@ -3,7 +3,9 @@
 import cloudinary from "cloudinary";
 import verifyToken from "../middleware/auth";
 import { body } from "express-validator";
-import  { Hotel,HotelType } from "../models/hotels";
+import  { Hotel  } from "../models/hotels";
+import {HotelType} from "../shared/types";
+
  const router = express.Router();
 
  const storage = multer.memoryStorage();
@@ -54,6 +56,15 @@ import  { Hotel,HotelType } from "../models/hotels";
   catch (e){
     console.log("error creating hotel :",e);
     res.status(500).json({message:"something went wrong"});
+  }
+ });
+ router.get("/", verifyToken, async(req:Request , res: Response) => {
+  try {
+  const hotels = await Hotel.find({userId:req.userId});
+  res.json(hotels);
+  }
+  catch(error){
+    res.status(500).json({message:"Error fetching hotels"})
   }
  });
  export default router;

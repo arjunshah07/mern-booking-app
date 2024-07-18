@@ -15,7 +15,7 @@ test('should allow the user to sign in', async ({ page }) => {
 
   await page.getByRole("button", {name: " Login"}).click();
 
-  await expect(page.getByText("Sign in Successful")).toBeVisible();
+  await expect(page.getByText("Sign-in successful")).toBeVisible();
 
   await expect(page.getByRole("link", { name:"My Bookings"})).toBeVisible();
 
