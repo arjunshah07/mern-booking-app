@@ -94,7 +94,7 @@ export const Register = () => {
             <input 
             type="password"
             className="border rounded w-full py-1 px-2 font-normal"
-             {...register("confirmPassword",{
+             {...register("confirmpassword",{
                 validate:(val)=>{
                     if(!val){
                         return "this field is required"
@@ -105,9 +105,9 @@ export const Register = () => {
              }
             )}>
             </input>
-            {errors.confirmPassword && (
+            {errors.confirmpassword && (
                 <span className="text-red-500">
-                    {errors.confirmPassword.message}
+                    {errors.confirmpassword.message}
                 </span>
             )}
         </label>
