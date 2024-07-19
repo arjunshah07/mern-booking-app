@@ -8,7 +8,7 @@ declare global {
             userId:string;
          }
      }
-};
+}
 const verifyToken = (req:Request , res:Response , next : NextFunction) => {
     const token = req.cookies["auth_token"];
     console.log("middleware token",token);

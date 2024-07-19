@@ -70,16 +70,17 @@ test("should display hotels", async ({ page }) => {
     await page.getByRole("link", { name: "View Details" }).first().click();
   
     await page.waitForSelector('[name="name"]', { state: "attached" });
-    await expect(page.locator('[name="name"]')).toHaveValue("Dublin Getaways");
-    await page.locator('[name="name"]').fill("Dublin Getaways UPDATED");
+    await expect(page.locator('[name="name"]')).toHaveValue("Arjun Shah");
+    await page.locator('[name="name"]').fill("Grand Plassio");
     await page.getByRole("button", { name: "Save" }).click();
     await expect(page.getByText("Hotel Saved")).toBeVisible();
   
     await page.reload();
   
     await expect(page.locator('[name="name"]')).toHaveValue(
-      "Dublin Getaways UPDATED"
+      "Grand Plassio"
     );
-    await page.locator('[name="name"]').fill("Dublin Getaways");
+    await page.locator('[name="name"]').fill("Arjun Shah");
     await page.getByRole("button", { name: "Save" }).click();
   });
+  

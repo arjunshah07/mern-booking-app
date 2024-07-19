@@ -13,13 +13,13 @@ router.post("/login",[
         min:6,
     }),
 ], async (req:Request , res:Response)=>{
-    const errors = validationResult(req)
+    const errors = validationResult(req);
     if(!errors.isEmpty()) {
-        return res.send(400).json({message:errors.array()})
+        return res.send(400).json({message:errors.array()});
     }
     const {email , password} = req.body;
     try { 
-        const  user = await User.findOne({email})
+        const  user = await User.findOne({email});
         console.log(user);
         if(!user){
             
@@ -33,8 +33,8 @@ router.post("/login",[
             console.log(isMatch);
             return res.status(400).json({message:"Invalid credentials"});
         }
-        console.log("before token");
-        console.log(process.env.JWT_SECRET_KEY);
+        //console.log("before token");
+       // console.log(process.env.JWT_SECRET_KEY);
         const token = jwt.sign(
             { userId : user.id },
             process.env.JWT_SECRET_KEY as string,
@@ -55,7 +55,7 @@ router.post("/login",[
     }
 });
 router.get("/validate-token" , verifyToken, (req:Request , res: Response) => {
-    res.status(200).send({userId : req.userId})
+    res.status(200).send({userId : req.userId});
 });
 router.post("/logout" , (req: Request , res: Response)=> {
     res.cookie("auth_token","",{

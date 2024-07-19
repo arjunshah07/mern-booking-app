@@ -3,6 +3,7 @@ import Layout from "./layouts/Layout";
 import {Register} from "./pages/Register";
 import SignIn from "./pages/Signin";
 import AddHotel from "./pages/AddHotel";
+import EditHotel from "./pages/EditHotel";
 import { useAppContext } from "./contexts/AppContext";
 import MyHotels from "./pages/MyHotels";
 const App = () => {
@@ -28,9 +29,17 @@ const App = () => {
 
               {isLoggedIn && (<>
               <Route 
-              path = "/add-hotel" element = {
+              path = "/add-hotel/" 
+              element = {
                 <Layout>
-                  <AddHotel/>
+                  <AddHotel />
+                </Layout>
+              }
+              />
+              <Route 
+              path = "/edit-hotel/:hotelId" element = {
+                <Layout>
+                  <EditHotel/>
                 </Layout>
               }
               />

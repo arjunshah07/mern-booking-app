@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
-app.use("/api/my-Hotels" , myHotelRoutes);
+app.use("/api/my-hotels" , myHotelRoutes);
 
 app.get("*" , (re:Request , res:Response)=> {
     res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
