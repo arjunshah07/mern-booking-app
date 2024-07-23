@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Route , Routes , Navigate} from "react-router-d
 import Layout from "./layouts/Layout";
 import {Register} from "./pages/Register";
 import SignIn from "./pages/Signin";
+import Search from "./pages/Search";
 import AddHotel from "./pages/AddHotel";
 import EditHotel from "./pages/EditHotel";
 import { useAppContext } from "./contexts/AppContext";
@@ -15,9 +16,14 @@ const App = () => {
           <Layout>
           <p>Home Page</p>
         </Layout>} />
-        <Route path="/search" element={<Layout>
-          <p>Serach Page</p>
-        </Layout>} />
+        <Route
+          path="/search"
+          element={
+            <Layout>
+              <Search />
+            </Layout>
+          }
+        />
         <Route path="/register" element ={
           <Layout>
             <Register/>
