@@ -26,7 +26,7 @@ const {
     setValue ,
     formState:{errors}, } = useForm<GuestInfoData>({
         defaultValues: {
-            checkIn: search.chekIn,
+            checkIn: search.checkIn,
             checkOut : search.checkOut,
             adultCount : search.adultCount,
             childCount : search.childCount,

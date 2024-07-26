@@ -9,7 +9,7 @@ const SearchBar = () => {
     const search = useSearchContext();
     const navigate = useNavigate();
     const [destination , setDestination]  = useState<string>(search.destination);
-    const [ checkIn , setCheckIn] = useState<Date>(search.chekIn)
+    const [ checkIn , setCheckIn] = useState<Date>(search.checkIn)
     const [ checkOut , setCheckOut] = useState<Date>(search.checkOut);
     const [adultCount , setadultCount] = useState<number>(search.adultCount);
     const [childCount , setchildCount] = useState<number>(search.childCount);

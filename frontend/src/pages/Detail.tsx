@@ -10,7 +10,7 @@ const Detail = () => {
     const { data: hotel } = useQuery("fetchHotelById",
          () => apiClient.fetchHotelById(hotelId || ""),
          {
-            enable : !!hotelId,
+            enabled : !!hotelId,
          }
         );
         if(!hotel){
