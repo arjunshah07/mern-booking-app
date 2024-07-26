@@ -3,7 +3,7 @@ import React , { useContext ,useState } from "react";
 
 type SearchContext = {
     destination : string;
-    chekIn:Date;
+    checkIn:Date;
     checkOut:Date;
     adultCount:number;
     childCount:number;
@@ -11,7 +11,7 @@ type SearchContext = {
 
     saveSearchValues:(
         destination : string,
-        chekIn:Date,
+        checkIn:Date,
         checkOut:Date,
         adultCount:number,
         childCount:number,
@@ -20,10 +20,11 @@ type SearchContext = {
 
 const SearchContext= React.createContext<SearchContext | undefined>(undefined);
 
-type SearchContextProvider = {
+type SearchContextProviderProps = {
     children : React.ReactNode;
 }
-export const SearchContextProvider = ({children}) => {
+export const SearchContextProvider = ({children,
+}:SearchContextProviderProps) => {
     const [destination , setDestination] = useState<string>("")
     const [ checkIn , setCheckIn] = useState<Date>(new Date());
     const [ checkOut , setCheckOut] = useState<Date>(new Date());
