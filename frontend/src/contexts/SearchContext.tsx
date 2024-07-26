@@ -1,5 +1,5 @@
 import React , { useContext ,useState } from "react";
-import { createContext } from "react";
+
 
 type SearchContext = {
     destination : string;
@@ -32,7 +32,7 @@ export const SearchContextProvider = ({children}) => {
     const [hotelId , setHotelId] = useState<string>("");
     const saveSearchValues = (
         destination : string,
-        chekIn:Date,
+        checkIn:Date,
         checkOut:Date,
         adultCount:number,
         childCount:number,

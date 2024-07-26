@@ -1,6 +1,6 @@
 type Props = {
     selectedStars : string[];
-    onChange: (event: React.ChangeEvent<HTMLImageElement>)=> void
+    onChange: (event: React.ChangeEvent<HTMLImageElement>)=> void;
 };
 
 const StarRatingFilter = ({ selectedStars , onChange} : Props) => {

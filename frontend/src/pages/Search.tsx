@@ -6,7 +6,7 @@ import SearchResultsCard from "../components/SearchResultsCard";
 import Pagination from "../components/Pagination";
 import StarRatingFilter from "../components/StarRatingFilter";
 import HotelTypesFilter from "../components/HotelTypesFilter";
-import { hotelTypes } from "../config/hotels-options-congig";
+//import { hotelTypes } from "../config/hotels-options-congig";
 import FacilitiesFilter from "../components/FacilitiesFilter";
 import PriceFilter from "../components/PriceFilter";
 
@@ -17,20 +17,20 @@ const Search =() => {
     const [selectedHotelTypes , setSelectedHotelTypes] = useState<string[]>([]);
     const [selectedFacilities , setSelectedFacilities] = useState<string[]>([]);
     const [selectedPrice , setSelectedPrice] = useState<number | undefined>();
-    const [sortOption , setSortOption] = useState<strin>("");
+    const [sortOption , setSortOption] = useState<string>("");
 
     const searchParams = {
-      destination : search.destination,
-      checkIn : search.checkIn.toISOString(),
-      checkOut : search.checkOut.toISOString(),
+      destination: search.destination,
+      checkIn: search.checkIn.toISOString(),
+      checkOut: search.checkOut.toISOString(),
       adultCount: search.adultCount.toString(),
       childCount: search.childCount.toString(),
       page: page.toString(),
-      stars:selectedStars,
-      types:selectedHotelTypes,
-      facilities:selectedFacilities,
-      maxPrice:selectedPrice?.toString(),
-      sortOption
+      stars: selectedStars,
+      types: selectedHotelTypes,
+      facilities: selectedFacilities,
+      maxPrice: selectedPrice?.toString(),
+      sortOption,
     };
     
     const { data: hotelData } = useQuery(["searchHotels", searchParams], () =>
@@ -108,15 +108,15 @@ const Search =() => {
             <option value="pricePerNightDesc">Price Per Night (high to low)</option>
           </select>
         </div>
-        {hotelData?.data.map((hotel , ind)=>(
-          <SearchResultsCard hotel = {hotel} key={ind}/>
+        {hotelData?.data.map((hotel)=>(
+          <SearchResultsCard hotel = {hotel} />
         ))}
         <div>
-        <Pagination 
-        page={hotelData?.pagination.page || 1} 
-        pages = {hotelData?.pagination || 1}
-        onPageChange={(page)=> setPage(page)}
-        />
+        <Pagination
+            page={hotelData?.pagination.page || 1}
+            pages={hotelData?.pagination.pages || 1}
+            onPageChange={(page) => setPage(page)}
+          />
         </div>
       </div>
       </div>
