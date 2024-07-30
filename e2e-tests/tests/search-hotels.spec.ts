@@ -38,7 +38,7 @@ test("should show hotel detail", async ({ page }) => {
   await expect(page).toHaveURL(/detail/);
   await expect(page.getByRole("button", { name: "Book now" })).toBeVisible();
 });
-/*
+
 test("should book hotel", async ({ page }) => {
   await page.goto(UI_URL);
 
@@ -54,9 +54,9 @@ test("should book hotel", async ({ page }) => {
   await page.getByText("Dublin Getaways").click();
   await page.getByRole("button", { name: "Book now" }).click();
 
-  await expect(page.getByText("Total Cost: £357.00")).toBeVisible();
+  await expect(page.getByText("Total Cost: ₹357.00")).toBeVisible();
 
- /* const stripeFrame = page.frameLocator("iframe").first();
+  const stripeFrame = page.frameLocator("iframe").first();
   await stripeFrame
     .locator('[placeholder="Card number"]')
     .fill("4242424242424242");
@@ -69,4 +69,4 @@ test("should book hotel", async ({ page }) => {
 
   await page.getByRole("link", { name: "My Bookings" }).click();
   await expect(page.getByText("Dublin Getaways")).toBeVisible();
-});*/
+});
