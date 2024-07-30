@@ -1,7 +1,6 @@
 import {RegisterFormData} from "./pages/Register";
 import { SignInFormData } from "./pages/Signin";
 import { HotelType , HotelSearchResponse, UserType, PaymentIntentResponse} from "../../backend/src/shared/types";
-import { formatDate } from "react-datepicker/dist/date_utils";
 import { BookingFormData } from "./Forms/BookingForm/BookingForm";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
