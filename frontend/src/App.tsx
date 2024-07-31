@@ -9,6 +9,8 @@ import { useAppContext } from "./contexts/AppContext";
 import MyHotels from "./pages/MyHotels";
 import Detail from "./pages/Detail";
 import Booking from "./pages/Booking";
+import MyBookings from "./pages/MyBookings";
+import Home from "./pages/Home";
 const App = () => {
   const {isLoggedIn} = useAppContext();
   return (
@@ -16,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={
           <Layout>
-          <p>Home Page</p>
+          <Home />
         </Layout>} />
         <Route
           path="/search"
@@ -71,6 +73,13 @@ const App = () => {
               path = "/my-hotels" element = {
                 <Layout>
                   <MyHotels/>
+                </Layout>
+              }
+              />
+              <Route 
+              path = "/my-bookings" element = {
+                <Layout>
+                  <MyBookings/>
                 </Layout>
               }
               />

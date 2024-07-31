@@ -3,7 +3,7 @@
 import cloudinary from "cloudinary";
 import verifyToken from "../middleware/auth";
 import { body } from "express-validator";
-import  { Hotel  } from "../models/hotels";
+import  Hotel from "../models/hotels";
 import {HotelType} from "../shared/types";
 
  const router = express.Router();

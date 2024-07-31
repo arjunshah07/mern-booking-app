@@ -1,11 +1,11 @@
 import express, { Request, Response } from "express";
-import { Hotel } from "../models/hotels";
+import Hotel from "../models/hotels";
 import { BookingType, HotelSearchResponse } from "../shared/types";
 import { param, validationResult } from "express-validator";
-import Stripe from "stripe";
+//import Stripe from "stripe";
 import verifyToken from "../middleware/auth";
 
-const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
+//const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
 
 const router = express.Router();
 
@@ -86,7 +86,7 @@ router.get(
   }
 );
 
-router.post(
+/* router.post(
   "/:hotelId/bookings/payment-intent",
   verifyToken,
   async (req: Request, res: Response) => {
@@ -122,12 +122,13 @@ router.post(
     res.send(response);
   }
 );
-
+*/
 router.post(
   "/:hotelId/bookings",
   verifyToken,
   async (req: Request, res: Response) => {
     try {
+      /*
       const paymentIntentId = req.body.paymentIntentId;
 
       const paymentIntent = await stripe.paymentIntents.retrieve(
@@ -150,6 +151,7 @@ router.post(
           message: `payment intent not succeeded. Status: ${paymentIntent.status}`,
         });
       }
+        */
 
       const newBooking: BookingType = {
         ...req.body,
@@ -162,6 +164,7 @@ router.post(
           $push: { bookings: newBooking },
         }
       );
+      console.log(hotel);
 
       if (!hotel) {
         return res.status(400).json({ message: "hotel not found" });
