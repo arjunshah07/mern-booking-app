@@ -6,18 +6,18 @@ const Header = () => {
     const {isLoggedIn} = useAppContext();
 
     return (
-        <div className = "bg-blue-800 py-6">
+        <div className = "bg-blue-950 py-6">
             <div className="container mx-auto flex justify-between">
                 <span className="text3xl text-white font-bold tracking-tight">
-                    <Link to="/">MernHolidays</Link>
+                    <Link to="/" className="text-3xl">Easy Stays</Link>
                     </span>
                     <span className="flex space-x-2">
                         {isLoggedIn ? (<>
-                        <Link className="flex items-center text-white pc-3 font-bold hover:bg-blue-600" to="/my-bookings">My Bookings</Link>
-                        <Link className="flex items-center text-white pc-3 font-bold hover:bg-blue-600" to="/my-hotels">My Hotels</Link>
+                        <Link className="flex rounded-lg items-center text-white pc-3 font-bold hover:bg-blue-600" to="/my-bookings">My Bookings</Link>
+                        <Link className="flex rounded-lg items-center text-white pc-3 font-bold hover:bg-blue-600" to="/my-hotels">My Hotels</Link>
                         <SignOutButton />
                         </>) : (
-                            <Link to="/sign-in" className="flex bg-white item-center text-blue-600 px-3 font-bold hover:bg-gray-100  ">
+                            <Link to="/sign-in" className="rounded-lg flex item-center text-white px-3 font-bold hover:bg-blue-600  ">
                             Sign in
                             </Link>
                         )}

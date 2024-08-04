@@ -22,7 +22,7 @@ import { useAppContext } from "../contexts/AppContext";
   return (
     <button 
     onClick = {handleClick}
-    className="text-blue-600 px-3 font-bold bg-white hover:bg-gray-100">
+    className="text-white rounded-lg px-3 font-bold  hover:bg-red-500">
         Sign Out
     </button>
   );
