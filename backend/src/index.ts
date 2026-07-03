@@ -47,6 +47,7 @@ app.use("/api/my-bookings",bookingRoutes);
 app.get("*" , (req:Request , res:Response)=> {
     res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
 });
-app.listen(5174 , () => {
-    console.log("server running on 5174 port");
+const PORT = process.env.PORT || 8000;
+app.listen(Number(PORT), () => {
+    console.log(`server running on ${PORT} port`);
 });

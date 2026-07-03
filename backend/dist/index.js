@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 require("dotenv/config");
+const dns_1 = __importDefault(require("dns"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const users_1 = __importDefault(require("./routes/users"));
 const auth_1 = __importDefault(require("./routes/auth"));
@@ -19,6 +20,8 @@ cloudinary_1.v2.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+dns_1.default.setServers(['8.8.8.8', '1.1.1.1']);
+console.log(process.env.MONGODB_CONNECTION_STRING);
 mongoose_1.default
     .connect(process.env.MONGODB_CONNECTION_STRING)
     .then(() => console.log("connected to database"));
@@ -40,6 +43,7 @@ app.use("/api/my-bookings", my_bookings_1.default);
 app.get("*", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "../../frontend/dist/index.html"));
 });
-app.listen(5174, () => {
-    console.log("server running on 5174 port");
+const PORT = process.env.PORT || 8000;
+app.listen(Number(PORT), () => {
+    console.log(`server running on ${PORT} port`);
 });
