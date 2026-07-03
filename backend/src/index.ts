@@ -1,6 +1,7 @@
 import express from'express';
 import cors from 'cors';
 import"dotenv/config";
+import dns from 'dns';
 import mongoose from 'mongoose';
 import userRoutes from "./routes/users";
 import authRoutes from "./routes/auth";
@@ -15,6 +16,9 @@ cloudinary.config({
     api_secret : process.env.CLOUDINARY_API_SECRET,
 });
 
+dns.setServers(['8.8.8.8', '1.1.1.1']);
+
+console.log(process.env.MONGODB_CONNECTION_STRING);
 mongoose
 .connect(process.env.MONGODB_CONNECTION_STRING as string)
 .then(() => 
@@ -40,7 +44,7 @@ app.use("/api/my-hotels" , myHotelRoutes);
 app.use("/api/hotels",hotelRoutes);
 app.use("/api/my-bookings",bookingRoutes);
 
-app.get("*" , (re:Request , res:Response)=> {
+app.get("*" , (req:Request , res:Response)=> {
     res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
 });
 app.listen(5174 , () => {

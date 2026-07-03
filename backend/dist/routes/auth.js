@@ -44,8 +44,8 @@ router.post("/login", [
             console.log(isMatch);
             return res.status(400).json({ message: "Invalid credentials" });
         }
-        console.log("before token");
-        console.log(process.env.JWT_SECRET_KEY);
+        //console.log("before token");
+        // console.log(process.env.JWT_SECRET_KEY);
         const token = jsonwebtoken_1.default.sign({ userId: user.id }, process.env.JWT_SECRET_KEY, {
             expiresIn: "1d",
         });
